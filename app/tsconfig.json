@@ -1,7 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/public/*": ["public/*"],
+      "@/app/*": ["app/*"],
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/utils/*": ["utils/*"],
+      "@/types/*": ["types/*"],
+      "@/graphql/*": ["graphql/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
