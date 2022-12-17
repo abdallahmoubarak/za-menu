@@ -2,7 +2,7 @@
   "name": "Za Menu",
   "short_name": "Za Menu",
   "display": "standalone",
-  "theme_color": "#FFD93C",
+  "theme_color": "#ffd93c",
   "background_color": "#FFFFFF",
   "description": "A menu for every business",
   "start_url": "/",
