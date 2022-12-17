@@ -7,8 +7,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Za Menu</title>
-        <meta name="Za Menu" content="A menu for every business" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        />
       </Head>
       <div className="container">
         <div className="sidebar"> ||| </div>
