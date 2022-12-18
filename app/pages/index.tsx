@@ -1,4 +1,4 @@
-import { styles } from "@/utils/styles";
+import SideBar from "@/components/SideBar";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export default function Home() {
         />
       </Head>
       <div className="container">
-        <div className="sidebar"> ||| </div>
+        <SideBar />
         <div className="body">
           <div className="logo">
             <Image src={"/svg/Za-menu.svg"} alt="" width={200} height={50} />
@@ -26,9 +26,6 @@ export default function Home() {
           height: 100vh;
           overflow: hidden;
           display: flex;
-        }
-        .sidebar {
-          background: ${styles.primaryColor};
         }
         .logo {
           text-align: center;

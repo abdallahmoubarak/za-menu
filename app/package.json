@@ -9,16 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^7.1.1",
+    "@ducanh2912/next-pwa": "^6.1.4",
     "@fontsource/nunito": "^4.5.11",
-    "@types/node": "18.11.12",
-    "@types/react": "18.0.26",
+    "@neo4j/graphql": "^3.13.0",
+    "@neo4j/graphql-ogm": "^3.13.0",
+    "@neo4j/graphql-plugin-auth": "^1.1.0",
+    "@next/font": "^13.0.5",
+    "@tanstack/react-query": "^4.19.0",
+    "@tanstack/react-query-devtools": "^4.19.0",
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "eslint": "8.29.0",
-    "eslint-config-next": "13.0.6",
-    "next": "13.0.6",
+    "apollo-server-core": "^3.11.1",
+    "apollo-server-micro": "^3.11.1",
+    "bcrypt": "^5.1.0",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.5",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
+    "next": "13.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.4"
+    "react-icons": "^4.7.1",
+    "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0"
   }
 }
