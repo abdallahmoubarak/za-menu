@@ -6,4 +6,3 @@ export type userTypes = {
   password: string;
   userType?: string;
 };
-

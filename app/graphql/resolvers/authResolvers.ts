@@ -1,4 +1,4 @@
-import { signTypes } from "@/types/common";
+import { userTypes } from "@/types/common";
 import { createJWT, comparePassword, hashPassword } from "@/utils/jwt";
 
 import { User } from "../index";
@@ -6,7 +6,7 @@ import { User } from "../index";
 export const authMutations = {
   signUp: async (
     _source: any,
-    { name, email, password, userType }: signTypes,
+    { name, email, password, userType }: userTypes,
   ) => {
     const [existing] = await User.find({ where: { email } });
     if (existing) throw new Error(`User with email ${email} already exists!`);
@@ -27,7 +27,7 @@ export const authMutations = {
     return { user: users[0], token };
   },
 
-  signIn: async (_source: any, { email, password }: signTypes) => {
+  signIn: async (_source: any, { email, password }: userTypes) => {
     const [user] = await User.find({ where: { email } });
     if (!user) throw new Error("Email or password is not correct!");
     const correctPassword = await comparePassword(password, user.password);
