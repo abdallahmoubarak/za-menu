@@ -1,31 +1,24 @@
-import { styles } from "@/utils/styles";
 import Image from "next/image";
 
 export default function SideBar() {
   return (
     <>
-      <div className="sidebar">
-        <Image src={"/svg/burger.svg"} alt="|||" width={40} height={40} />
-        <ul>
-          <li>All</li>
+      <div className="bg-primary w-16 pt-4 text-center">
+        <div className="flex justify-center cursor-pointer">
+          <Image src={"/svg/burger.svg"} alt="|||" width={40} height={40} />
+        </div>
+        <ul className="pt-10">
+          <li className="cursor-pointer">All</li>
           <div className="items-container">
-            <li className="item">Cafes</li>
-            <li className="item">Restorants</li>
-            <li className="item">Retails</li>
-            <li className="item">Onlines</li>
+            {menuItems.map((item, i) => (
+              <li key={i} className="pt-4 cursor-pointer">
+                {item}
+              </li>
+            ))}
           </div>
         </ul>
       </div>
       <style jsx>{`
-        .sidebar {
-          width: 4.2rem;
-          background: var(--primary-color);
-          padding-top: 1rem;
-          text-align: center;
-        }
-        ul {
-          padding-top: 2.6rem;
-        }
         .items-container {
           display: flex;
           align-items: center;
@@ -36,10 +29,9 @@ export default function SideBar() {
           gap: 2rem;
           overflow: auto;
         }
-        .item {
-          padding-top: 1.4rem;
-        }
       `}</style>
     </>
   );
 }
+
+const menuItems: string[] = ["Cafe", "Restaurant", "Retail", "Online"];
