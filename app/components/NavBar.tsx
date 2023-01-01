@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function NavBar({ page }: { page?: string }) {
   const router = useRouter();
   return (
-    <div className="fixed flex items-center bottom-4 gap-4 justify-evenly py-2 px-2 shadow-[0_0_20px_-8px_rgba(0,0,0,0.3)] rounded-2xl w-10/12 left-[8%] bg-white">
+    <div className="fixed flex items-center bottom-4 gap-4 justify-evenly py-2 px-2 shadow-[0_0_20px_-8px_rgba(0,0,0,0.3)] rounded-2xl w-11/12 left-[4%] bg-white">
       {navItemsName.map((item, i) => (
         <div
           key={i}

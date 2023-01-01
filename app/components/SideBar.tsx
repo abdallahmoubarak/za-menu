@@ -6,7 +6,7 @@ export default function SideBar({
 }: sideBarTypes) {
   return (
     <>
-      <div className="bg-primary w-16 pt-4 text-center">
+      <div className="bg-primary w-10 pt-4 text-center">
         {/* <div className="flex justify-center cursor-pointer">
           <Image src={"/svg/burger.svg"} alt="|||" width={40} height={40} />
         </div> */}
@@ -32,7 +32,7 @@ export default function SideBar({
       </div>
       <style jsx>{`
         .items-container {
-          transform: rotate(90deg) translateY(-1.4rem);
+          transform: rotate(90deg) translateY(-0.6rem);
           transform-origin: left bottom;
         }
         .active {
