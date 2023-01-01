@@ -29,9 +29,9 @@ export default function User() {
         <Logo />
         <div className="px-2 pt-2 flex flex-col gap-3">
           <Box>
-            <div className="flex justify-between">
-              <div className="text-xl">
-                <div>Hello,</div>
+            <div className="flex justify-between cursor-pointer">
+              <div className="pt-2">
+                <div className="text-xl">Hello,</div>
                 <div>Abdallah Moubarak</div>
                 <div className="text-sm">{"+961 7009 7533 >"}</div>
               </div>

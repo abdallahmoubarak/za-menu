@@ -22,6 +22,15 @@ export default function Home() {
         />
         <div className="w-full">
           <Logo />
+          <div className="p-2">
+            <input
+              placeholder="Search"
+              className="px-4 py-1 rounded-3xl w-full shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)]"
+            />
+          </div>
+          <div className="text-3xl p-4 font-bold text-primary">
+            {selectedFilter}
+          </div>
         </div>
       </div>
       <NavBar page="home" />
