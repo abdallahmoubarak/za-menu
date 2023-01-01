@@ -7,10 +7,10 @@ export default function SideBar({
   return (
     <>
       <div className="bg-primary w-16 pt-4 text-center">
-        <div className="flex justify-center cursor-pointer">
+        {/* <div className="flex justify-center cursor-pointer">
           <Image src={"/svg/burger.svg"} alt="|||" width={40} height={40} />
-        </div>
-        <ul className="pt-10">
+        </div> */}
+        <ul className="pt-24">
           <li
             className={`cursor-pointer ${selectedFilter === "All" && "active"}`}
             onClick={() => setSelectedFilter("All")}>
@@ -20,7 +20,7 @@ export default function SideBar({
             {menuItems.map((item, i) => (
               <div
                 key={i}
-                className={`cursor-pointer px-2 rounded-md ${
+                className={`cursor-pointer px-2 rounded-b-md ${
                   selectedFilter === item && "active"
                 }`}
                 onClick={() => setSelectedFilter(item)}>

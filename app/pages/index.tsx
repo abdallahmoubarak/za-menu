@@ -1,11 +1,18 @@
+import Brands from "@/components/Brands";
 import Logo from "@/components/Logo";
 import NavBar from "@/components/NavBar";
+import Search from "@/components/Search";
 import SideBar from "@/components/SideBar";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [selectedFilter, setSelectedFilter] = useState<string>("Cafe");
+  const [search, setSearch] = useState<string>("");
+
+  useEffect(() => {
+    search.length > 0 ? setSelectedFilter("Search") : setSelectedFilter("All");
+  }, [search]);
   return (
     <div>
       <Head>
@@ -22,14 +29,14 @@ export default function Home() {
         />
         <div className="w-full">
           <Logo />
-          <div className="p-2">
-            <input
-              placeholder="Search"
-              className="px-4 py-1 rounded-3xl w-full shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)]"
-            />
-          </div>
+          <Search search={search} setSearch={setSearch} />
           <div className="text-3xl p-4 font-bold text-primary">
-            {selectedFilter}
+            {selectedFilter !== "All" &&
+              selectedFilter !== "Search" &&
+              selectedFilter}
+          </div>
+          <div className="p-4">
+            <Brands />
           </div>
         </div>
       </div>
