@@ -1,8 +1,11 @@
+import Logo from "@/components/Logo";
+import NavBar from "@/components/NavBar";
 import SideBar from "@/components/SideBar";
 import Head from "next/head";
-import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [selectedFilter, setSelectedFilter] = useState<string>("Cafe");
   return (
     <div>
       <Head>
@@ -13,13 +16,15 @@ export default function Home() {
         />
       </Head>
       <div className="w-screen h-screen overflow-hidden flex">
-        <SideBar />
-        <div className="w-full p-3 pt-4">
-          <div className="mx-auto w-max">
-            <Image src={"/svg/logo.svg"} alt="" width={200} height={50} />
-          </div>
+        <SideBar
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+        />
+        <div className="w-full">
+          <Logo />
         </div>
       </div>
+      <NavBar page="home" />
     </div>
   );
 }

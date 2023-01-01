@@ -1,6 +1,9 @@
 import Image from "next/image";
 
-export default function SideBar() {
+export default function SideBar({
+  selectedFilter,
+  setSelectedFilter,
+}: sideBarTypes) {
   return (
     <>
       <div className="bg-primary w-16 pt-4 text-center">
@@ -8,26 +11,34 @@ export default function SideBar() {
           <Image src={"/svg/burger.svg"} alt="|||" width={40} height={40} />
         </div>
         <ul className="pt-10">
-          <li className="cursor-pointer">All</li>
-          <div className="items-container">
+          <li
+            className={`cursor-pointer ${selectedFilter === "All" && "active"}`}
+            onClick={() => setSelectedFilter("All")}>
+            All
+          </li>
+          <div className="flex items-end w-[70vh] gap-4 relative items-container">
             {menuItems.map((item, i) => (
-              <li key={i} className="pt-4 cursor-pointer">
+              <div
+                key={i}
+                className={`cursor-pointer px-2 rounded-md ${
+                  selectedFilter === item && "active"
+                }`}
+                onClick={() => setSelectedFilter(item)}>
                 {item}
-              </li>
+              </div>
             ))}
           </div>
         </ul>
       </div>
       <style jsx>{`
         .items-container {
-          display: flex;
-          align-items: center;
-          width: 70vh;
           transform: rotate(90deg) translateY(-1.4rem);
           transform-origin: left bottom;
-          position: relative;
-          gap: 2rem;
-          overflow: auto;
+        }
+        .active {
+          background: white;
+          padding-bottom: 0.5rem;
+          padding-top: 0.5rem;
         }
       `}</style>
     </>
@@ -35,3 +46,4 @@ export default function SideBar() {
 }
 
 const menuItems: string[] = ["Cafe", "Restaurant", "Retail", "Online"];
+type sideBarTypes = { selectedFilter: string; setSelectedFilter: Function };
