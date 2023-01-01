@@ -1,8 +1,12 @@
 import Image from "next/image";
+import { GrFavorite } from "react-icons/gr";
 
 export default function Brands() {
   return (
-    <div className="flex relative p-1 gap-2 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)]">
+    <div className="flex relative p-2 pt-4 gap-2 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)]">
+      <div className="absolute top-1 right-2">
+        <GrFavorite />
+      </div>
       <div className="border border-primary border-1 rounded-full w-max p-2">
         <Image
           className="rounded-3xl"
@@ -12,7 +16,7 @@ export default function Brands() {
           height={80}
         />
       </div>
-      <div className="flex flex-col justify-between min-h-full flex-auto pt-6 pr-6">
+      <div className="flex flex-col justify-between min-h-full flex-auto pt-2 pr-6">
         <div>
           <div className="text-2xl">MOGE TEE</div>
         </div>

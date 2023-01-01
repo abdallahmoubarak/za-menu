@@ -30,12 +30,12 @@ export default function Home() {
         <div className="w-full">
           <Logo />
           <Search search={search} setSearch={setSearch} />
-          <div className="text-3xl p-4 font-bold text-primary">
+          <div className="text-3xl px-4 py-2 font-bold text-primary">
             {selectedFilter !== "All" &&
               selectedFilter !== "Search" &&
               selectedFilter}
           </div>
-          <div className="p-4">
+          <div className="px-4">
             <Brands />
           </div>
         </div>
