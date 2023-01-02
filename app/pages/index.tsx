@@ -1,4 +1,4 @@
-import Brands from "@/components/Brands";
+import BrandCard from "@/components/BrandCard";
 import Logo from "@/components/Logo";
 import NavBar from "@/components/NavBar";
 import Search from "@/components/Search";
@@ -35,8 +35,8 @@ export default function Home() {
               selectedFilter !== "Search" &&
               selectedFilter}
           </div>
-          <div className="px-4">
-            <Brands />
+          <div className="px-2">
+            <BrandCard />
           </div>
         </div>
       </div>
