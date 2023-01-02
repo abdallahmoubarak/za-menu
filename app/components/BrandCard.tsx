@@ -5,7 +5,7 @@ import { HiLocationMarker } from "react-icons/hi";
 
 export default function BrandCard() {
   return (
-    <div className="relative p-2 pt-4 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)]">
+    <div className="relative p-2 pt-4 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)] max-w-lg">
       <div className="absolute top-2 right-2">
         <GrFavorite />
       </div>
