@@ -41,6 +41,10 @@ a {
   text-decoration: none;
 }
 
+:root {
+  --primary-color: #ffd93c;
+}
+
 body {
   height: 100%;
 }

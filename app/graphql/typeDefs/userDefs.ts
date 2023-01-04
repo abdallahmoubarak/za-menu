@@ -6,7 +6,7 @@ export const userDefs = gql`
     name: String!
     email: String!
     password: String! @auth(rules: [{ allow: { id: "$jwt.sub" } }]) @private
-    userType: String!
+    userType: String
     phone: String
     profile_url: String
     language: String
@@ -26,12 +26,7 @@ export const userDefs = gql`
   }
 
   type Mutation {
-    signUp(
-      name: String!
-      email: String!
-      password: String!
-      userType: String!
-    ): AuthRes!
+    signUp(name: String!, email: String!, password: String!): AuthRes!
     signIn(email: String!, password: String!): AuthRes!
   }
 
