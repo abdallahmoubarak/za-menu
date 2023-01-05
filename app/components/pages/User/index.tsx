@@ -12,6 +12,8 @@ import {
 } from "react-icons/gr";
 import { IoWalletOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
+import { client } from "pages/_app";
+import { graphQLClient } from "@/utils/graphQLInstance";
 
 export default function UserPage() {
   return (
@@ -45,7 +47,16 @@ export default function UserPage() {
           <Option icon={<GrCircleInformation />} name={"About"} />
           <Option icon={<BiSupport />} name={"Support"} />
         </Box>
-        <div className="px-4 cursor-pointer">Logout</div>
+        <div
+          className="px-4 cursor-pointer"
+          onClick={() => {
+            client.setQueryData(["User"], null);
+            localStorage.removeItem("JWT");
+            localStorage.removeItem("User");
+            graphQLClient.setHeaders({ authorization: "" });
+          }}>
+          Logout
+        </div>
       </div>
     </div>
   );
