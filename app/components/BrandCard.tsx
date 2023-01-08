@@ -2,10 +2,14 @@ import Image from "next/image";
 import { GrFavorite } from "react-icons/gr";
 import { BsClock } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
+import { useRouter } from "next/dist/client/router";
 
 export default function BrandCard() {
+  const router = useRouter();
   return (
-    <div className="relative p-2 pt-4 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)] max-w-lg">
+    <div
+      className="relative p-2 pt-4 rounded-lg shadow-[0_0_10px_-3px_rgba(0,0,0,0.3)] max-w-lg"
+      onClick={() => router.push(`/menu/${"code"}`)}>
       <div className="absolute top-2 right-2">
         <GrFavorite />
       </div>

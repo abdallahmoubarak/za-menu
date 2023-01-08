@@ -12,7 +12,7 @@ export default function NavBar({ page }: { page?: string }) {
             item === page && "bg-primary"
           }`}
           onClick={() =>
-            item !== "home" ? router.push(`/${item}`) : router.push(`/`)
+            item !== "home" ? router.replace(`/${item}`) : router.replace(`/`)
           }>
           <Image
             src={`/svg/${item}.svg`}
