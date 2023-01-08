@@ -1,4 +1,4 @@
-import { useSignUp } from "@/hooks/useAuth";
+import { useSignIn, useSignUp } from "@/hooks/useAuth";
 import { useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
@@ -10,14 +10,16 @@ export default function Sign() {
   const [password, setPassword] = useState<string>("");
   const [msg, setMsg] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSignUp, setIsSignUp] = useState<boolean>(false);
 
   const { mutate: signUp } = useSignUp({ setMsg, setIsLoading });
+  const { mutate: signIn } = useSignIn({ setMsg, setIsLoading });
 
   return (
     <>
       <div className="flex flex-col items-center justify-center max-w-[26rem] mx-auto p-4 sign-container sm:border-xl sm:border sm:[0_0_10px_-4px_rgba(0,0,0,0.3)] sm:rounded-2xl sm:mt-8">
         <InputsContainer>
-          <Input name={"Name"} value={name} setValue={setName} />
+          {isSignUp && <Input name={"Name"} value={name} setValue={setName} />}
           <Input name={"Email"} value={email} setValue={setEmail} />
           <Input
             name={"Password"}
@@ -25,10 +27,15 @@ export default function Sign() {
             setValue={setPassword}
             inputType={"password"}
           />
+          <div className="text-red">{msg}</div>
           <Button
-            text={"Sign Up"}
+            text={isSignUp ? "Sign Up" : "Sign In"}
             isLoading={isLoading}
-            onClick={() => signUp({ name, email, password })}
+            onClick={() =>
+              isSignUp
+                ? signUp({ name, email, password })
+                : signIn({ email, password })
+            }
           />
         </InputsContainer>
       </div>
