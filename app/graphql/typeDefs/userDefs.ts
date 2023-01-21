@@ -11,7 +11,6 @@ export const userDefs = gql`
     profile_url: String
     language: String
     location: Point
-    palet_number: String
     sent_messages: [Message!]! @relationship(type: "FROM", direction: OUT)
     received_messages: [Message!]! @relationship(type: "TO", direction: IN)
     createdAt: DateTime! @timestamp(operations: [CREATE])
