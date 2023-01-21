@@ -61,3 +61,14 @@ export default function Menu() {
     </div>
   );
 }
+
+const catgor = [
+  {
+    name: "food",
+    products: [
+      { name: "burger", price: 3.3 },
+      { name: "cheese-burger", price: 3.3 },
+    ],
+  },
+  { name: "Beverage", products: [{ name: "burger", price: 3.3 }] },
+];
