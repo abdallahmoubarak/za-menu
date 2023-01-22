@@ -38,8 +38,8 @@ export default function UserPage() {
         </Box>
         <Box>
           {options.map((option, i) => (
-            <Link href={option.link || ""}>
-              <Option key={i} icon={option.icon} name={option.name} />
+            <Link key={i} href={option.link || ""}>
+              <Option icon={option.icon} name={option.name} />
             </Link>
           ))}
         </Box>
