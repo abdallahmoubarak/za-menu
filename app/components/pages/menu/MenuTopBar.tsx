@@ -28,9 +28,8 @@ export default function MenuTopBar({
           <BsThreeDotsVertical />
         </div>
       </div>
-      <div className="h-60 overflow-hidden">
+      <div className="h-60 overflow-hidden mx-auto sticky top-12 z-[-2]">
         <Image
-          className="mx-auto sticky top-12 z-[-2]"
           src={"/img/mogeteeprofile.png"}
           alt={""}
           height={200}
