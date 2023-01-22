@@ -1,6 +1,4 @@
 import Box from "@/components/Box";
-import Logo from "@/components/Logo";
-import NavBar from "@/components/NavBar";
 import Option from "@/components/Option";
 import Image from "next/image";
 import { FaRegBell } from "react-icons/fa";

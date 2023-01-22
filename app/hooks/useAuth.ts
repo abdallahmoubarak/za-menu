@@ -1,8 +1,8 @@
 import { meQuery, signInMutation, signUpMutation } from "./gql/auth";
-import { signTypes, useSignTypes } from "./@types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { client } from "pages/_app";
 import { graphQLClient } from "@/utils/graphQLInstance";
+import { signTypes, useSignTypes } from "@/types/common";
 
 /*********************** useSignUp hook ***********************/
 

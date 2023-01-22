@@ -1,74 +1,47 @@
-import { HiArrowLeft } from "react-icons/hi";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { useRouter } from "next/dist/client/router";
-import Image from "next/image";
-import { categories, products } from "@/utils/data";
+import { categories } from "@/utils/data";
+import MenuTopBar from "@/components/pages/menu/MenuTopBar";
+import { useState } from "react";
+import ProductCard from "@/components/pages/menu/ProductCard";
+
 export default function Menu() {
-  const router = useRouter();
-  const categorySection = "Milk Tea";
+  const [activeCategory, setactiveCategory] = useState(categories[0].name);
+
+  const handleClick = (category: string) => {
+    setactiveCategory(category);
+  };
+
   return (
     <div className="h-fit">
-      <div className="flex justify-between items-center bg-primary p-1 sticky top-0 shadow-md">
-        <div className="flex items-center">
-          <span
-            className="p-3  cursor-pointer"
-            onClick={() => router.replace("/")}>
-            <HiArrowLeft />
-          </span>
-          <span>business name - region</span>
-        </div>
-        <div className="cursor-pointer p-3 ">
-          <BsThreeDotsVertical />
-        </div>
-      </div>
-      <Image
-        className="mx-auto sticky top-12 z-[-2]"
-        src={"/img/Hamburger.png"}
-        alt={""}
-        height={300}
-        width={800}
-      />
-      {/* menu items and categories */}
+      <MenuTopBar businessName={"Moge Tee"} region={"Nabatieh"} />
+
       <ul className="flex flex-nowrap overflow-auto gap-4 text-sm p-1 sticky top-12 bg-white shadow-md">
-        {categories.map((category, i) => (
+        {categories?.map((category, i) => (
           <li
             key={i}
             className={`whitespace-nowrap px-2 py-1 rounded-md cursor-pointer ${
-              category === categorySection ? "bg-primary" : ""
-            }`}>
-            {category}
+              category?.name === activeCategory ? "bg-primary" : ""
+            }`}
+            onClick={() => handleClick(category?.name)}>
+            {category?.name}
           </li>
         ))}
       </ul>
       <div className="bg-white">
-        <ul>
-          {categories.map((category, i) => (
-            <>
-              <li className="bg-primary text-2xl px-2 py-1">{category}</li>
-              <ul>
-                {products
-                  .filter((product) => product.category === category)
-                  .map((item, i) => (
-                    <li className="px-2 py-1" key={i}>
-                      {item.name}
-                    </li>
-                  ))}
-              </ul>
-            </>
-          ))}
-        </ul>
+        {categories?.map((category, i) => (
+          <section key={i} id={category.name}>
+            <h1 className="bg-primary text-2xl text-left px-2 py-1">
+              {category?.name}
+            </h1>
+            <ul>
+              {category.products?.map((product, j) => (
+                <li key={j}>
+                  <ProductCard product={product} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
       </div>
     </div>
   );
 }
-
-const catgor = [
-  {
-    name: "food",
-    products: [
-      { name: "burger", price: 3.3 },
-      { name: "cheese-burger", price: 3.3 },
-    ],
-  },
-  { name: "Beverage", products: [{ name: "burger", price: 3.3 }] },
-];
