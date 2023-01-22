@@ -4,10 +4,7 @@ import { createJWT, comparePassword, hashPassword } from "@/utils/jwt";
 import { User } from "../index";
 
 export const authMutations = {
-  signUp: async (
-    _source: any,
-    { name, email, password, userType }: userTypes,
-  ) => {
+  signUp: async (_source: any, { name, email, password }: userTypes) => {
     const [existing] = await User.find({ where: { email } });
     if (existing) throw new Error(`User with email ${email} already exists!`);
     const hash = await hashPassword(password);
@@ -18,7 +15,6 @@ export const authMutations = {
           name,
           email,
           password: hash,
-          userType,
         },
       ],
     });
