@@ -1,17 +1,19 @@
 import Box from "@/components/Box";
 import Option from "@/components/Option";
 import Image from "next/image";
-import { FaRegBell } from "react-icons/fa";
-import {
-  GrFavorite,
-  GrLocation,
-  GrCreditCard,
-  GrCircleInformation,
-} from "react-icons/gr";
-import { IoWalletOutline } from "react-icons/io5";
 import { BiSupport } from "react-icons/bi";
+import {
+  BsShop,
+  BsCreditCard,
+  BsHeart,
+  BsInfoCircle,
+  BsGeoAlt,
+  BsBell,
+  BsWallet2,
+} from "react-icons/bs";
 import { client } from "pages/_app";
 import { graphQLClient } from "@/utils/graphQLInstance";
+import Link from "next/link";
 
 export default function UserPage() {
   return (
@@ -35,27 +37,37 @@ export default function UserPage() {
           </div>
         </Box>
         <Box>
-          <Option icon={<FaRegBell />} name={"Notifications"} />
-          <Option icon={<GrFavorite />} name={"Favorites"} />
-          <Option icon={<GrLocation />} name={"Address"} />
-          <Option icon={<IoWalletOutline />} name={"Wallet"} />
-          <Option icon={<GrCreditCard />} name={"Payment"} />
+          {options.map((option, i) => (
+            <Link href={option.link || ""}>
+              <Option key={i} icon={option.icon} name={option.name} />
+            </Link>
+          ))}
         </Box>
         <Box>
-          <Option icon={<GrCircleInformation />} name={"About"} />
+          <Option icon={<BsInfoCircle />} name={"About"} />
           <Option icon={<BiSupport />} name={"Support"} />
         </Box>
-        <div
-          className="px-4 cursor-pointer"
-          onClick={() => {
-            client.setQueryData(["User"], null);
-            localStorage.removeItem("JWT");
-            localStorage.removeItem("User");
-            graphQLClient.setHeaders({ authorization: "" });
-          }}>
-          Logout
-        </div>
+        <Box>
+          <div
+            className="px-4 cursor-pointer"
+            onClick={() => {
+              client.setQueryData(["User"], null);
+              localStorage.removeItem("JWT");
+              localStorage.removeItem("User");
+              graphQLClient.setHeaders({ authorization: "" });
+            }}>
+            Logout
+          </div>
+        </Box>
       </div>
     </div>
   );
 }
+const options = [
+  { icon: <BsShop />, name: "Business", link: "/gm/businesses" },
+  { icon: <BsBell />, name: "Notifications" },
+  { icon: <BsHeart />, name: "Favorites" },
+  { icon: <BsGeoAlt />, name: "Address" },
+  { icon: <BsWallet2 />, name: "Wallet" },
+  { icon: <BsCreditCard />, name: "Payment" },
+];

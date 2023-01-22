@@ -16,7 +16,7 @@ export default function MenuTopBar({
       <div className="flex justify-between items-center bg-primary p-1 sticky top-0 shadow-md">
         <div className="flex items-center">
           <span
-            className="p-3  cursor-pointer"
+            className="p-3 cursor-pointer"
             onClick={() => router.replace("/")}>
             <HiArrowLeft />
           </span>
@@ -28,13 +28,17 @@ export default function MenuTopBar({
           <BsThreeDotsVertical />
         </div>
       </div>
-      <div className="h-60 overflow-hidden mx-auto sticky top-12 z-[-2]">
+      <div className="h-60 overflow-hidden sticky top-12 z-[-2]">
         <Image
+          className="mx-auto z-[-1]"
           src={"/img/mogeteeprofile.png"}
           alt={""}
           height={200}
           width={600}
         />
+        <div className="absolute top-0 z-[-3] w-screen h-full bg-[url('/img/mogeteeprofile.png')] bg-cover blur-2xl">
+          a
+        </div>
       </div>
     </>
   );
