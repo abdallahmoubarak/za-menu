@@ -24,7 +24,6 @@ export const signInMutation = gql`
         name
         email
         phone
-        userType
         profile_url
       }
     }
@@ -38,7 +37,6 @@ export const meQuery = gql`
       name
       email
       phone
-      userType
       profile_url
     }
   }
