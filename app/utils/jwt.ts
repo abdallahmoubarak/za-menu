@@ -14,7 +14,7 @@ export const createJWT = (data: string | object) => {
     jwt.sign(
       data,
       process.env.NEXT_PUBLIC_JWT_SECRET,
-      { expiresIn: "20d" },
+      { expiresIn: "30d" },
       (err, token) => {
         if (err) return reject(err);
         return resolve(token);
